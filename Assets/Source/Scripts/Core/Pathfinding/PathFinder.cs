@@ -4,7 +4,8 @@ public static class PathFinder
 {
     public static List<Node> FindPath(Node start, Node goal, System.Func<Node, bool> blocked)
     {
-        if (blocked(goal)) return null;
+        if (blocked(goal)) 
+            return null;
 
         var cameFrom = new Dictionary<Node, Node>();
         var queue = new Queue<Node>();

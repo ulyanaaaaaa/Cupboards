@@ -15,10 +15,9 @@ public class UnityInputService : IInputService
 
     public bool GetPointerDown() => Input.GetMouseButtonDown(0);
 
-    public Vector2 PointerWorldPosition()
+    private Vector2 PointerWorldPosition()
     {
-        var mp = Input.mousePosition;
-        var world = _camera.ScreenToWorldPoint(mp);
+        var world = _camera.ScreenToWorldPoint(Input.mousePosition);
         return new Vector2(world.x, world.y);
     }
 
@@ -31,9 +30,6 @@ public class UnityInputService : IInputService
             return pieceHit.gameObject;
 
         var nodeHit = Physics2D.OverlapPoint(pos, _nodeLayer);
-        if (nodeHit != null) 
-            return nodeHit.gameObject;
-
-        return null;
+        return nodeHit != null ? nodeHit.gameObject : null;
     }
 }

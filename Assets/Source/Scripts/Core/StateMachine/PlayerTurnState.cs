@@ -40,8 +40,13 @@
 
         if (go.TryGetComponent(out NodeView nodeView) && _selected != null)
         {
-            var path = PathFinder.FindPath(_selected.CurrentNode, nodeView.Model, node => node.OccupiedBy != null && node.OccupiedBy != _selected);
-            if (path == null) return;
+            var path = PathFinder.FindPath(_selected.CurrentNode, 
+                nodeView.Model, 
+                node => node.OccupiedBy != null && node.OccupiedBy != _selected);
+            
+            if (path == null) 
+                return;
+            
             var move = _stateMachine.Get<PieceMovingState>();
             move.Setup(_selected, path);
             _stateMachine.Enter<PieceMovingState>();
@@ -52,8 +57,10 @@
     {
         _selected = piece;
         _highlight.HighlightPiece(piece);
-        var reachable = 
-            PathFinder.ReachableNodes(piece.CurrentNode, n => n.OccupiedBy != null && n.OccupiedBy != piece);
+        
+        var reachable = PathFinder.ReachableNodes(
+            piece.CurrentNode, 
+                n => n.OccupiedBy != null && n.OccupiedBy != piece);
         _highlight.HighlightNodes(reachable);
     }
 

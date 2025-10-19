@@ -8,14 +8,9 @@ public class NodeView : MonoBehaviour
     private SpriteRenderer _renderer;
     private Color _originalColor;
     private Tween _pulseTween;
-    private readonly GameConfig _config;
+    private readonly GameConfig _config = ServiceContainer.Resolve<GameConfig>();
 
-    public NodeView()
-    {
-        _config = ServiceContainer.Resolve<GameConfig>();
-    }
-
-    void Awake()
+    private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
         _originalColor = _renderer.color;

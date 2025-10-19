@@ -18,7 +18,6 @@ public class LoadLevelState : IState
     {
         var loader = new LevelLoader();
         var data = loader.LoadLevel(AssetsPath.LevelPath1); 
-      
         var board = new Board();
 
         for (int i = 0; i < data.PointCount; i++)
@@ -37,17 +36,24 @@ public class LoadLevelState : IState
         {
             var a = board.GetNode(edge.a);
             var b = board.GetNode(edge.b);
-            if (a == null || b == null) continue;
-            if (!a.Neighbors.Contains(b.Id)) a.Neighbors.Add(b.Id);
-            if (!b.Neighbors.Contains(a.Id)) b.Neighbors.Add(a.Id);
+            
+            if (a == null || b == null)
+                continue;
+            
+            if (!a.Neighbors.Contains(b.Id)) 
+                a.Neighbors.Add(b.Id);
+            
+            if (!b.Neighbors.Contains(a.Id)) 
+                b.Neighbors.Add(a.Id);
         }
 
-        int pieceCount = data.PieceCount;
-        for (int i = 0; i < pieceCount; i++)
+        for (int i = 0; i < data.PieceCount; i++)
         {
             int nodeId = data.StartPositions[i];
             var node = board.GetNode(nodeId);
-            if (node == null) continue;
+            
+            if (node == null) 
+                continue;
 
             var piece = new Piece
             {
@@ -63,6 +69,9 @@ public class LoadLevelState : IState
         ServiceContainer.Register(board);
         _boardBuilder.Build(board);
         _targetView.BuildTarget(data);
+        
+        ServiceContainer.Resolve<WinService>().Initialize(data, board.Pieces, _stateMachine);
+
         _stateMachine.Enter<PlayerTurnState>();
     }
 

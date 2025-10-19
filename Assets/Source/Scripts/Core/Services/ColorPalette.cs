@@ -8,7 +8,7 @@ public static class ColorPalette
     {
         _config = config;
     }
-    
+
     public static Color GetColorByIndex(int idx)
         => _config.PieceColors[idx % _config.PieceColors.Count];
 }

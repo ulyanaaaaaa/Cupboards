@@ -19,7 +19,6 @@ public class GameConfig : ScriptableObject
     public float PulseDuration;
     public float PulseScaleFactor;
     public float PulseScaleDuration;
-    public float MoveSpeed;
 
     [Header("Line Settings")]
     public float LineWidth;

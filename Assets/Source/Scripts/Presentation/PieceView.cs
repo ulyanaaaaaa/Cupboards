@@ -9,23 +9,11 @@ public class PieceView : MonoBehaviour
     private Color _originalColor;
     private Tween _pulseTweenColor;
     private Tween _pulseTweenScale;
-    private readonly GameConfig _config;
-
-    public PieceView()
-    {
-        _config = ServiceContainer.Resolve<GameConfig>();
-    }
-
-    void Awake()
-    {
-        _renderer = GetComponent<SpriteRenderer>();
-    }
-
+    private readonly GameConfig _config = ServiceContainer.Resolve<GameConfig>();
+    
     public void SetColor(Color c)
     {
-        if (_renderer == null)
-            _renderer = GetComponent<SpriteRenderer>();
-        
+        _renderer = GetComponent<SpriteRenderer>();
         _renderer.color = c;
         _originalColor = c;
     }

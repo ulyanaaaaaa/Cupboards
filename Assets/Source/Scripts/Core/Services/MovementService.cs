@@ -5,13 +5,8 @@ using DG.Tweening;
 
 public class MovementService : IMovementService
 {
-    private readonly GameConfig _config;
-    
-    public MovementService()
-    {
-        _config = ServiceContainer.Resolve<GameConfig>();
-    }
-    
+    private readonly GameConfig _config = ServiceContainer.Resolve<GameConfig>();
+
     public async Task MovePieceAlong(Piece piece, List<Node> path)
     {
         foreach (var node in path)
