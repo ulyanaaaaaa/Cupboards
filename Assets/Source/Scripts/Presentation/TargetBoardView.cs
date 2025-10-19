@@ -65,7 +65,7 @@ public class TargetBoardView : MonoBehaviour
         }
     }
 
-    private void Clear()
+    public void Clear()
     {
         foreach (var o in _instances)
             Destroy(o);

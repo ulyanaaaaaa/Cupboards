@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class LevelLoader
 {
-    public LevelDataText LoadLevel(string resourcePath)
+    public LevelDataText LoadLevel(TextAsset textAsset)
     {
-        var ta = Resources.Load<TextAsset>(resourcePath);
-        var lines = ta.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+        var text = textAsset.text;
+        var lines = text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
         int idx = 0;
         
         var data = new LevelDataText();

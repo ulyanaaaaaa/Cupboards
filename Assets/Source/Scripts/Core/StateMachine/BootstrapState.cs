@@ -7,7 +7,7 @@ public class BootstrapState : IState
     private readonly TargetBoardView _targetBoardView;
     private readonly WinView _winView;
 
-    public BootstrapState(GameStateMachine stateMachine, 
+    public BootstrapState(GameStateMachine stateMachine,
         BoardBuilder boardBuilder,
         TargetBoardView targetBoardView,
         WinView winView)
@@ -36,6 +36,10 @@ public class BootstrapState : IState
         ServiceContainer.Register<IMovementService>(new MovementService());
         ServiceContainer.Register<IHighlightService>(new UnityHighlightService(config));
         ServiceContainer.Register(new WinService());
+
+        if (!ServiceContainer.TryResolve<LevelManager>(out _))
+            ServiceContainer.Register(new LevelManager(config));
+
         ColorPalette.Initialize(config);
     }
 
@@ -44,7 +48,6 @@ public class BootstrapState : IState
         _stateMachine.Register(new LoadLevelState(_stateMachine, _boardBuilder, _targetBoardView));
         _stateMachine.Register(new PlayerTurnState(_stateMachine));
         _stateMachine.Register(new PieceMovingState(_stateMachine));
-        _stateMachine.Register(new WinState(_stateMachine, _winView));
+        _stateMachine.Register(new WinState(_stateMachine, _winView)); 
     }
 }
-

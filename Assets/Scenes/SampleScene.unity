@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RESTART
+  m_text: 'NEXT '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -544,7 +544,7 @@ MonoBehaviour:
   _canvasGroup: {fileID: 887939717}
   _window: {fileID: 887939716}
   _winText: {fileID: 1217810562}
-  _restartButton: {fileID: 1840730410}
+  _nextButton: {fileID: 1840730410}
 --- !u!114 &887939719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 1840730411}
   - component: {fileID: 1840730410}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,8 +1018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba84363b788449f846c3d159541e8e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NodePrefab: {fileID: 7466103568035958486, guid: 0f65a302f9d17b740ac2da07a14a15f2, type: 3}
-  PiecePrefab: {fileID: 5598204254019288757, guid: 31ec4f9040ddb22428354717deba04d2, type: 3}
 --- !u!4 &1873627425
 Transform:
   m_ObjectHideFlags: 0
@@ -1143,8 +1141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e54832b1d184b67a8d76dd063e7a26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NodePrefab: {fileID: 7466103568035958486, guid: 0f65a302f9d17b740ac2da07a14a15f2, type: 3}
-  PiecePrefab: {fileID: 5598204254019288757, guid: 31ec4f9040ddb22428354717deba04d2, type: 3}
 --- !u!4 &1988878927
 Transform:
   m_ObjectHideFlags: 0

@@ -75,8 +75,8 @@ public class BoardBuilder : MonoBehaviour
             }
         }
     }
-    
-    private void Clear()
+
+    public void Clear()
     {
         foreach (var go in _instances)
             if (go != null)

@@ -4,6 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
 public class GameConfig : ScriptableObject
 {
+    [Header("Levels")]
+    public List<TextAsset> Levels = new List<TextAsset>();
+
     [Header("Board Settings")]
     public float NodeScale;
     public float Spacing;
